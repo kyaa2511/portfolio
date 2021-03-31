@@ -73,22 +73,37 @@ body {
 
 .card-body1 {
     height: 15em;
-    display: flex;
-    justify-content: center; 
-    justify-content: space-between;  
-    align-items: center;
+    margin-left: 25em;
+
+   
+}
+
+.card-body1 a{
+    text-decoration: none;
+    color: whitesmoke;
 }
 .card-body img{
     padding: 20px;
+    margin-left: 10em;
 }
 
-/* .card-body p{
-    margin-top: 
-} */
+#projects {
+    margin-right: 20em;
+    padding: 1em;
+}
+
+#projects img{
+    
+    padding: 10em;
+}
+
+
+
 
 
 .card w-100 {
-    width: 100%;  margin-left: 15em;
+    width: 100%;  
+    margin-left: 15em;
 }
 
 .card-title{
@@ -99,7 +114,77 @@ body {
     height:8em;
 }
 
+mediaIcons
 
-/* #aboutMe h5 {
+img:hover{
+    opacity: 0.7;
+   
+}
+
+.fa {
+
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+#mediaIcons{
+    margin-left: 6em;
+    padding: 3em;
     
-} */
+}
+
+  .fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    border-radius: 2em;
+  }
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+    border-radius: 2em;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+    border-radius: 2em;
+  }
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+    border-radius: 2em;
+  }
+
+  #messageInput {
+      padding-top: 1em;
+      margin-left: 4.5em;
+  }
+
+  #emailInput {
+      margin-left: 5em;
+      padding-top: 1em;
+  }
+
+  #btn {
+      padding-top: 2em;
+      margin-left: 15em;
+      
+  }
+
+  .submitbtn {
+    border-radius: 5em;
+  }
+
+
+
+
+  
+  
+
+
