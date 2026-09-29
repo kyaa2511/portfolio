@@ -1,3 +1,5 @@
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -6,6 +8,23 @@ import { cn } from "@/lib/cn";
 import type { Project } from "@/types/content";
 
 function ProjectVisual({ project }: { project: Project }) {
+  if (project.visual) {
+    return (
+      <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-white sm:aspect-[16/10]">
+        <div className="absolute inset-6 sm:inset-10">
+          <Image
+            src={project.visual.src}
+            alt={project.visual.alt}
+            width={project.visual.width}
+            height={project.visual.height}
+            sizes="(min-width: 1280px) 560px, (min-width: 1024px) 45vw, 100vw"
+            className="size-full object-contain"
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       aria-hidden="true"
@@ -30,6 +49,21 @@ function ProjectVisual({ project }: { project: Project }) {
 }
 
 function CaseStudyAction({ project }: { project: Project }) {
+  if (project.websiteUrl) {
+    return (
+      <a
+        href={project.websiteUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn btn-secondary"
+      >
+        Visit Website
+        <ArrowUpRight className="btn-icon size-4" aria-hidden="true" />
+        <span className="sr-only">(opens in a new tab)</span>
+      </a>
+    );
+  }
+
   // Case-study pages are not built yet: show a disabled action instead of a
   // dead "#" link. Swap to <Button href={`/work/${project.slug}`}> once published.
   if (project.caseStudy.status === "published") {
@@ -50,7 +84,7 @@ function CaseStudyAction({ project }: { project: Project }) {
 
 export function FeaturedWork() {
   return (
-    <section id="work" aria-labelledby="work-heading" className="section">
+    <section id="work" aria-labelledby="work-heading" className="section pt-[clamp(3rem,2rem+4.5vw,6rem)]">
       <div className="container-page">
         <SectionHeader
           eyebrow="Selected work"
@@ -59,12 +93,12 @@ export function FeaturedWork() {
           description="Applications built, fixed, and improved for real users."
         />
 
-        <ol className="mt-14 space-y-16 md:mt-20 md:space-y-24">
+        <ol className="mt-9 space-y-10 md:mt-12 md:space-y-16">
           {projects.map((project, index) => (
             <li key={project.slug}>
               <Reveal
                 as="article"
-                className="group/project grid gap-8 border-t border-line pt-8 lg:grid-cols-12 lg:items-center lg:gap-14 lg:pt-12"
+                className="group/project grid gap-8 border-t border-line pt-6 lg:grid-cols-12 lg:items-center lg:gap-14 lg:pt-8"
               >
                 <div className={cn("lg:col-span-7", index % 2 === 1 && "lg:order-2")}>
                   <ProjectVisual project={project} />

@@ -14,6 +14,9 @@ export const siteConfig = {
  */
 export const PENDING_HREF = "#";
 
+export const contactEmail = "kyaa2511@gmail.com";
+export const contactMailto = `mailto:${contactEmail}?subject=Project%20Inquiry`;
+
 export const navItems: readonly NavItem[] = [
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
@@ -26,7 +29,7 @@ export const navCta: NavItem = { label: "Let's Work Together", href: "#contact" 
 export const socialLinks: readonly SocialLink[] = [
   { label: "GitHub", href: null },
   { label: "LinkedIn", href: null },
-  { label: "Email", href: null },
+  { label: "Email", href: `mailto:${contactEmail}` },
 ];
 
 export const capabilities: readonly ContentItem[] = [

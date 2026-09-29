@@ -19,10 +19,17 @@ export const projects: readonly Project[] = [
     slug: "my-tech-hero",
     number: "02",
     title: "My Tech Hero",
-    subtitle: "Technology Support Business Platform",
+    subtitle: "Technology Support Business Website",
     description:
-      "A business platform for a technology support company, built with React on Cloudflare, with Turnstile guarding public forms and Resend delivering email.",
+      "A website for my technology support business, helping people understand the services available and take the next step toward getting help. The focus is clear service information, approachable language, and a straightforward support-request process.",
     technologies: ["React", "Cloudflare", "Turnstile", "Resend"],
+    websiteUrl: "https://mytechhero.net",
+    visual: {
+      src: "/projects/my-tech-hero-logo.png",
+      alt: "My Tech Hero logo",
+      width: 1024,
+      height: 768,
+    },
     caseStudy: { status: "coming-soon" },
   },
   {

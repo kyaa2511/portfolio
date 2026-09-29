@@ -3,7 +3,7 @@ import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { FeaturedWork } from "@/components/sections/FeaturedWork";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { PlaygroundTeaser } from "@/components/sections/PlaygroundTeaser";
+import { OrbitBreakerSection } from "@/components/sections/OrbitBreakerSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 
 export default function HomePage() {
@@ -14,7 +14,7 @@ export default function HomePage() {
       <FeaturedWork />
       <ServicesSection />
       <AboutPreview />
-      <PlaygroundTeaser />
+      <OrbitBreakerSection />
       <ContactCTA />
     </main>
   );

@@ -1,6 +1,6 @@
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
-import { Button } from "@/components/ui/Button";
-import { PENDING_HREF } from "@/data/site";
+import { contactEmail, contactMailto } from "@/data/site";
 
 export function ContactCTA() {
   return (
@@ -21,10 +21,16 @@ export function ContactCTA() {
             or an older system improved, let&rsquo;s talk.
           </p>
           <div className="mt-10">
-            {/* Placeholder: the contact flow ships in a later sprint. */}
-            <Button href={PENDING_HREF} size="lg" className="w-full sm:w-auto">
+            <a href={contactMailto} className="btn btn-primary btn-lg w-full sm:w-auto">
               Start a Project
-            </Button>
+              <ArrowRight className="btn-icon size-4" aria-hidden="true" />
+            </a>
+            <p className="mt-6 text-muted">
+              Or email{" "}
+              <a href={`mailto:${contactEmail}`} className="link">
+                {contactEmail}
+              </a>
+            </p>
           </div>
         </Reveal>
       </div>
