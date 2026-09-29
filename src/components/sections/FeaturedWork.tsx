@@ -48,19 +48,33 @@ function ProjectVisual({ project }: { project: Project }) {
   );
 }
 
+function ExternalAction({ href, label }: { href: string; label: string }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+      {label}
+      <ArrowUpRight className="btn-icon size-4" aria-hidden="true" />
+      <span className="sr-only">(opens in a new tab)</span>
+    </a>
+  );
+}
+
 function CaseStudyAction({ project }: { project: Project }) {
   if (project.websiteUrl) {
+    return <ExternalAction href={project.websiteUrl} label="Visit Website" />;
+  }
+
+  if (project.repositoryUrl) {
+    const action = <ExternalAction href={project.repositoryUrl} label="View on GitHub" />;
+
+    if (!project.statusLabel) return action;
+
     return (
-      <a
-        href={project.websiteUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn btn-secondary"
-      >
-        Visit Website
-        <ArrowUpRight className="btn-icon size-4" aria-hidden="true" />
-        <span className="sr-only">(opens in a new tab)</span>
-      </a>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        {action}
+        <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
+          {project.statusLabel}
+        </span>
+      </div>
     );
   }
 

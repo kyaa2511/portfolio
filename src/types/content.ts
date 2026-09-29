@@ -10,6 +10,10 @@ export interface Project {
   technologies: readonly string[];
   /** Live site. When set, the action links here instead of the case-study placeholder. */
   websiteUrl?: string;
+  /** Public source repository. Used when there is no live site. */
+  repositoryUrl?: string;
+  /** Short status shown beside the action, e.g. "In development". */
+  statusLabel?: string;
   /** Brand or product image shown instead of the numbered placeholder. */
   visual?: { src: string; alt: string; width: number; height: number };
   /**

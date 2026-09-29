@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { StaggerContainer, StaggerItem } from "@/components/motion/Stagger";
 import { Button } from "@/components/ui/Button";
-import { aboutFocusAreas, PENDING_HREF } from "@/data/site";
+import { aboutApproach } from "@/data/site";
 
 export function AboutPreview() {
   return (
@@ -17,36 +17,41 @@ export function AboutPreview() {
         <div className="lg:col-span-7">
           <Reveal delay={0.1}>
             <p className="type-lead">
-              Katana is a full-stack software developer with experience building,
-              supporting, debugging, and modernizing enterprise and small-business
-              applications.
+              I&rsquo;m Katana Yaa, a full-stack developer who helps businesses build new
+              applications, fix frustrating problems, and improve the software they already
+              depend on.
             </p>
             <p className="type-lead mt-6 text-muted">
-              His work spans frontend development, backend services, APIs, databases,
-              authentication, testing, and production application support.
+              My experience spans enterprise applications and small-business websites,
+              including frontend development, backend services, databases, and production
+              support. Supporting applications after launch has taught me to look beyond
+              whether a feature works once and consider how people will use and maintain it
+              every day.
+            </p>
+            <p className="type-lead mt-6 text-muted">
+              When we work together, I focus on understanding what you need, explaining
+              technical decisions clearly, and finding practical solutions. Whether you have
+              an idea to develop or an existing application that needs attention, I can help
+              you work through the next steps.
             </p>
           </Reveal>
 
           <StaggerContainer
             as="ul"
-            className="mt-12 grid border-b border-line sm:grid-cols-2 sm:gap-x-10"
+            className="mt-12 grid border-b border-line sm:grid-cols-3 sm:gap-x-8"
             stagger={0.05}
           >
-            {aboutFocusAreas.map((area) => (
-              <StaggerItem
-                key={area}
-                as="li"
-                className="border-t border-line py-4 font-mono text-sm text-muted"
-              >
-                {area}
+            {aboutApproach.map((item) => (
+              <StaggerItem key={item.title} as="li" className="border-t border-line py-5">
+                <h3 className="font-medium text-fg">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted">{item.description}</p>
               </StaggerItem>
             ))}
           </StaggerContainer>
 
           <Reveal className="mt-10">
-            {/* Placeholder: the full About page ships in a later sprint. */}
-            <Button href={PENDING_HREF} variant="secondary">
-              More About Me
+            <Button href="#contact" variant="secondary">
+              Let&rsquo;s Talk
             </Button>
           </Reveal>
         </div>

@@ -8,12 +8,6 @@ export const siteConfig = {
     "Full-stack software developer building, debugging, and improving modern web applications with React, TypeScript, Node.js, APIs, and databases.",
 } as const;
 
-/**
- * Sprint 1 placeholder for destinations that are not built yet
- * (About page, contact flow). Replace with real routes in later sprints.
- */
-export const PENDING_HREF = "#";
-
 export const contactEmail = "kyaa2511@gmail.com";
 export const contactMailto = `mailto:${contactEmail}?subject=Project%20Inquiry`;
 
@@ -86,12 +80,17 @@ export const services: readonly ContentItem[] = [
   },
 ];
 
-export const aboutFocusAreas: readonly string[] = [
-  "Frontend development",
-  "Backend services",
-  "APIs",
-  "Databases",
-  "Authentication",
-  "Testing",
-  "Production support",
+export const aboutApproach: readonly ContentItem[] = [
+  {
+    title: "Understand the problem",
+    description: "Clarify your goals, users, and what needs to improve.",
+  },
+  {
+    title: "Build with purpose",
+    description: "Connect the interface, services, and data around those needs.",
+  },
+  {
+    title: "Support what comes next",
+    description: "Troubleshoot issues and make future changes easier.",
+  },
 ];

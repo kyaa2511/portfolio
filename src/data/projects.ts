@@ -13,6 +13,8 @@ export const projects: readonly Project[] = [
     description:
       "A multi-tenant platform for running IT operations, with a React and TypeScript front end, a NestJS API, PostgreSQL through TypeORM, and Clerk handling authentication.",
     technologies: ["React", "TypeScript", "NestJS", "PostgreSQL", "TypeORM", "Clerk"],
+    repositoryUrl: "https://github.com/kyaa2511/techops-hub",
+    statusLabel: "In development",
     caseStudy: { status: "coming-soon" },
   },
   {
