@@ -59,31 +59,37 @@ function ExternalAction({ href, label }: { href: string; label: string }) {
 }
 
 function CaseStudyAction({ project }: { project: Project }) {
-  if (project.websiteUrl) {
-    return <ExternalAction href={project.websiteUrl} label="Visit Website" />;
+  const { caseStudy, websiteUrl, repositoryUrl, statusLabel } = project;
+
+  if (caseStudy.status === "published") {
+    return (
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <Button href={caseStudy.href}>View Case Study</Button>
+        {websiteUrl ? <ExternalAction href={websiteUrl} label="Visit Live Website" /> : null}
+      </div>
+    );
   }
 
-  if (project.repositoryUrl) {
-    const action = <ExternalAction href={project.repositoryUrl} label="View on GitHub" />;
+  if (websiteUrl) {
+    return <ExternalAction href={websiteUrl} label="Visit Website" />;
+  }
 
-    if (!project.statusLabel) return action;
+  if (repositoryUrl) {
+    const action = <ExternalAction href={repositoryUrl} label="View on GitHub" />;
+
+    if (!statusLabel) return action;
 
     return (
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         {action}
         <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
-          {project.statusLabel}
+          {statusLabel}
         </span>
       </div>
     );
   }
 
-  // Case-study pages are not built yet: show a disabled action instead of a
-  // dead "#" link. Swap to <Button href={`/work/${project.slug}`}> once published.
-  if (project.caseStudy.status === "published") {
-    return <Button href={`/work/${project.slug}`}>View Case Study</Button>;
-  }
-
+  // No page or link yet: show a disabled action instead of a dead "#" link.
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
       <button type="button" disabled className="btn btn-secondary">

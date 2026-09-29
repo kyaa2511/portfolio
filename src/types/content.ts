@@ -1,4 +1,6 @@
-export type CaseStudyStatus = "coming-soon" | "published";
+export type CaseStudy =
+  | { status: "coming-soon" }
+  | { status: "published"; href: string };
 
 export interface Project {
   slug: string;
@@ -8,7 +10,7 @@ export interface Project {
   subtitle: string;
   description: string;
   technologies: readonly string[];
-  /** Live site. When set, the action links here instead of the case-study placeholder. */
+  /** Live site. Shown as an external action, secondary to the case study when one is published. */
   websiteUrl?: string;
   /** Public source repository. Used when there is no live site. */
   repositoryUrl?: string;
@@ -16,12 +18,22 @@ export interface Project {
   statusLabel?: string;
   /** Brand or product image shown instead of the numbered placeholder. */
   visual?: { src: string; alt: string; width: number; height: number };
-  /**
-   * Case-study pages do not exist yet. While `status` is "coming-soon" the UI
-   * renders a disabled action. When a page ships, set "published" and the
-   * action links to `/work/${slug}`.
-   */
-  caseStudy: { status: CaseStudyStatus };
+  /** "published" carries the internal route of the case-study page. */
+  caseStudy: CaseStudy;
+}
+
+/** One way a client might come to the site: something to build, fix, or improve. */
+export interface HelpPath {
+  id: "build" | "fix" | "improve";
+  /** Short label, e.g. "Build". */
+  label: string;
+  /** The client's situation, in their words. */
+  need: string;
+  /** Call to action used where the visitor picks a path, e.g. "Build something new". */
+  intent: string;
+  /** Prefilled email subject for this path. */
+  subject: string;
+  work: readonly string[];
 }
 
 export interface NavItem {

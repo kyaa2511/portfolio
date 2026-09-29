@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { StaggerContainer, StaggerItem } from "@/components/motion/Stagger";
-import { services } from "@/data/site";
+import { helpPaths } from "@/data/site";
 
 export function ServicesSection() {
   return (
@@ -17,26 +17,41 @@ export function ServicesSection() {
               How I can help
             </h2>
             <p className="type-lead mt-6 text-muted">
-              Build something new, repair what is broken, or modernize what is holding you
-              back.
+              Most projects start in one of three places. Find the one that sounds like
+              yours.
             </p>
           </div>
         </Reveal>
 
-        <StaggerContainer as="ul" className="border-b border-line lg:col-span-8" stagger={0.06}>
-          {services.map((service, index) => (
+        <StaggerContainer as="ul" className="border-b border-line lg:col-span-8" stagger={0.1}>
+          {helpPaths.map((path, index) => (
             <StaggerItem
-              key={service.title}
+              key={path.id}
               as="li"
-              className="group grid gap-2 border-t border-line py-6 md:grid-cols-[3rem_minmax(0,1fr)_minmax(0,1.1fr)] md:gap-6 md:py-7"
+              className="grid gap-4 border-t border-line py-8 md:grid-cols-[3rem_minmax(0,1fr)] md:gap-6 md:py-10"
             >
-              <span className="font-mono text-sm text-subtle transition-colors group-hover:text-accent">
+              <span className="font-mono text-sm text-subtle">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-lg font-medium tracking-tight text-balance">
-                {service.title}
-              </h3>
-              <p className="text-muted">{service.description}</p>
+              <div>
+                <h3 className="font-mono text-sm uppercase tracking-[0.08em] text-accent">
+                  {path.label}
+                </h3>
+                <p className="mt-3 text-2xl leading-snug font-medium tracking-tight text-balance">
+                  &ldquo;{path.need}&rdquo;
+                </p>
+                <ul
+                  aria-label={`${path.label}: relevant work`}
+                  className="mt-6 grid gap-x-8 gap-y-2 text-muted sm:grid-cols-2"
+                >
+                  {path.work.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span aria-hidden="true" className="mt-[0.7em] size-1 flex-none bg-line-strong" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>

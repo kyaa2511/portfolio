@@ -16,9 +16,21 @@ export function Footer() {
             {socialLinks.map((item) => (
               <li key={item.label}>
                 {item.href ? (
-                  <a href={item.href} className="link inline-flex min-h-11 items-center text-sm">
-                    {item.label}
-                  </a>
+                  item.href.startsWith("https://") ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link inline-flex min-h-11 items-center text-sm"
+                    >
+                      {item.label}
+                      <span className="sr-only">(opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    <a href={item.href} className="link inline-flex min-h-11 items-center text-sm">
+                      {item.label}
+                    </a>
+                  )
                 ) : (
                   <span className="inline-flex min-h-11 items-center gap-2 text-sm text-subtle">
                     {item.label}

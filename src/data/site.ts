@@ -1,4 +1,4 @@
-import type { ContentItem, NavItem, SocialLink } from "@/types/content";
+import type { ContentItem, HelpPath, NavItem, SocialLink } from "@/types/content";
 
 export const siteConfig = {
   name: "Katana Yaa",
@@ -9,20 +9,26 @@ export const siteConfig = {
 } as const;
 
 export const contactEmail = "kyaa2511@gmail.com";
-export const contactMailto = `mailto:${contactEmail}?subject=Project%20Inquiry`;
 
+export function mailtoWithSubject(subject: string) {
+  return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`;
+}
+
+export const contactMailto = mailtoWithSubject("Project Inquiry");
+
+/** Root-relative so the links also work from pages other than the homepage. */
 export const navItems: readonly NavItem[] = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
-export const navCta: NavItem = { label: "Let's Work Together", href: "#contact" };
+export const navCta: NavItem = { label: "Let's Work Together", href: "/#contact" };
 
 /** `href: null` renders as a "soon" placeholder. Do not invent URLs. */
 export const socialLinks: readonly SocialLink[] = [
   { label: "GitHub", href: null },
-  { label: "LinkedIn", href: null },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/katanayaa/" },
   { label: "Email", href: `mailto:${contactEmail}` },
 ];
 
@@ -49,34 +55,49 @@ export const capabilities: readonly ContentItem[] = [
   },
 ];
 
-export const services: readonly ContentItem[] = [
+export const helpPaths: readonly HelpPath[] = [
   {
-    title: "Full-Stack Application Development",
-    description: "End-to-end builds, from database schema to finished interface.",
+    id: "build",
+    label: "Build",
+    need: "I need an application or website built.",
+    intent: "Build something new",
+    subject: "Project Inquiry — New Build",
+    work: [
+      "Full-stack applications",
+      "React and Next.js interfaces",
+      "Node.js APIs",
+      "Database-backed systems",
+      "Business websites",
+    ],
   },
   {
-    title: "React / Next.js Development",
-    description: "Fast, accessible front ends with a clean component architecture.",
+    id: "fix",
+    label: "Fix",
+    need: "I already have software, but something isn't working.",
+    intent: "Fix something broken",
+    subject: "Project Inquiry — Fix",
+    work: [
+      "Debugging and bug fixing",
+      "Frontend issues",
+      "API issues",
+      "Database issues",
+      "Troubleshooting existing applications",
+    ],
   },
   {
-    title: "Backend APIs",
-    description: "Reliable Node.js services with clear contracts and predictable behavior.",
-  },
-  {
-    title: "Application Debugging",
-    description: "Finding production issues and fixing them at the root, not the symptom.",
-  },
-  {
-    title: "Database Development",
-    description: "Schema design, queries, and migrations for relational databases.",
-  },
-  {
-    title: "Authentication & Authorization",
-    description: "Secure sign-in, roles, and permissions that fit how your product works.",
-  },
-  {
-    title: "Application Modernization",
-    description: "Upgrading older code and stacks without starting from scratch.",
+    id: "improve",
+    label: "Improve",
+    need: "My application works, but it needs to be better.",
+    intent: "Improve what already exists",
+    subject: "Project Inquiry — Improvement",
+    work: [
+      "Modernizing older code and stacks",
+      "Performance and UX improvements",
+      "Architecture cleanup",
+      "New feature development",
+      "Authentication and authorization",
+      "Production readiness",
+    ],
   },
 ];
 

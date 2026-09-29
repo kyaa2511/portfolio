@@ -32,7 +32,7 @@ export const projects: readonly Project[] = [
       width: 1024,
       height: 768,
     },
-    caseStudy: { status: "coming-soon" },
+    caseStudy: { status: "published", href: "/projects/my-tech-hero" },
   },
   {
     slug: "enterprise-clinical-platform",
