@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type CaseStudy =
   | { status: "coming-soon" }
   | { status: "published"; href: string };
@@ -21,7 +23,7 @@ export interface Project {
   /** Short status shown beside the action, e.g. "In development". */
   statusLabel?: string;
   /** Brand or product image shown instead of the numbered placeholder. */
-  visual?: { src: string; alt: string; width: number; height: number };
+  visual?: { src: string | StaticImageData; alt: string; width: number; height: number };
   /** "published" carries the internal route of the case-study page. */
   caseStudy: CaseStudy;
 }

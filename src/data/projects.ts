@@ -1,4 +1,5 @@
 import type { Project } from "@/types/content";
+import techopsLogo from "@/assets/techopsLogo.png";
 
 /**
  * Descriptions are placeholder copy derived from each project's stack.
@@ -27,7 +28,12 @@ export const projects: readonly Project[] = [
         detail: "Built to demonstrate auth, testing, CI, and deployment concerns as the app matures.",
       },
     ],
-    visualLabels: ["Organizations", "Users", "Roles", "API", "PostgreSQL", "CI"],
+    visual: {
+      src: techopsLogo,
+      alt: "TechOps Hub logo",
+      width: 1254,
+      height: 1254,
+    },
     repositoryUrl: "https://github.com/kyaa2511/techops-hub",
     statusLabel: "In development",
     caseStudy: { status: "coming-soon" },
