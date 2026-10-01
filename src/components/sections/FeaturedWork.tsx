@@ -34,16 +34,29 @@ function ProjectVisual({ project }: { project: Project }) {
 
       <div className="absolute inset-x-0 top-0 flex items-center justify-between border-b border-line px-4 py-3 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-subtle">
         <span>{project.slug}</span>
-        <span>Preview</span>
+        <span>{project.statusLabel ?? "Preview"}</span>
       </div>
 
       <p className="text-outline absolute inset-0 flex items-center justify-center text-[clamp(6rem,22vw,11rem)] leading-none font-semibold tracking-tighter lg:text-[clamp(6rem,12vw,10rem)]">
         {project.number}
       </p>
 
-      <p className="absolute bottom-4 left-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-subtle">
-        Visual placeholder
-      </p>
+      {project.visualLabels ? (
+        <ul className="absolute right-4 bottom-4 left-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {project.visualLabels.map((label) => (
+            <li
+              key={label}
+              className="border border-line bg-bg/70 px-2 py-1.5 font-mono text-[0.6875rem] tracking-[0.08em] text-subtle uppercase backdrop-blur-sm"
+            >
+              {label}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="absolute bottom-4 left-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-subtle">
+          Visual placeholder
+        </p>
+      )}
     </div>
   );
 }
@@ -143,6 +156,22 @@ export function FeaturedWork() {
                       </li>
                     ))}
                   </ul>
+
+                  {project.proofPoints ? (
+                    <dl className="mt-7 border-b border-line">
+                      {project.proofPoints.map((point) => (
+                        <div
+                          key={point.label}
+                          className="grid gap-1 border-t border-line py-4 sm:grid-cols-[7.5rem_minmax(0,1fr)] sm:gap-4"
+                        >
+                          <dt className="font-mono text-xs tracking-[0.08em] text-subtle uppercase">
+                            {point.label}
+                          </dt>
+                          <dd className="text-sm leading-6 text-muted">{point.detail}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  ) : null}
 
                   <div className="mt-8">
                     <CaseStudyAction project={project} />
