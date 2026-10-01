@@ -11,8 +11,23 @@ export const projects: readonly Project[] = [
     title: "TechOps Hub",
     subtitle: "Multi-Tenant IT Operations Platform",
     description:
-      "A multi-tenant platform for running IT operations, with a React and TypeScript front end, a NestJS API, PostgreSQL through TypeORM, and Clerk handling authentication.",
+      "An in-progress full-stack operations platform designed around organizations, users, memberships, role-aware access, backend APIs, and relational data modeling.",
     technologies: ["React", "TypeScript", "NestJS", "PostgreSQL", "TypeORM", "Clerk"],
+    proofPoints: [
+      {
+        label: "Architecture",
+        detail: "Multi-tenant domain model with organizations, memberships, and authorization boundaries.",
+      },
+      {
+        label: "Backend",
+        detail: "NestJS API layer backed by PostgreSQL and TypeORM for production-style data workflows.",
+      },
+      {
+        label: "Delivery",
+        detail: "Built to demonstrate auth, testing, CI, and deployment concerns as the app matures.",
+      },
+    ],
+    visualLabels: ["Organizations", "Users", "Roles", "API", "PostgreSQL", "CI"],
     repositoryUrl: "https://github.com/kyaa2511/techops-hub",
     statusLabel: "In development",
     caseStudy: { status: "coming-soon" },

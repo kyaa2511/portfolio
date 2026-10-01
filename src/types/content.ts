@@ -10,6 +10,10 @@ export interface Project {
   subtitle: string;
   description: string;
   technologies: readonly string[];
+  /** Concrete proof points shown on stronger in-progress or architecture-heavy work. */
+  proofPoints?: readonly { label: string; detail: string }[];
+  /** Short labels used to make the placeholder visual more specific to the project. */
+  visualLabels?: readonly string[];
   /** Live site. Shown as an external action, secondary to the case study when one is published. */
   websiteUrl?: string;
   /** Public source repository. Used when there is no live site. */
